@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylescar.css" />
+    <title>Meu Carrinho</title>
+</head>
+<body>
+<table>
+
+    <header> 
+        <form action="header"></form>
+    
+        <div class="title">
+        <h1>Seu Carrinho de Compras</h1>
+         </div>
+        <div class="content">
+        
+    
+        <ul id="cart-list">
+            <!-- Itens do carrinho -->
+        </ul>
+    
+        <p>Total: <span id="cart-total">0.00</span></p>
+        <button onclick="clearCart()">Limpar Carrinho</button>
+        <button onclick="checkout()">Finalizar Compra</button>
+    </header>
+</table>
+    <main>
+        <script>
+
+            function loadCart() {
+                const cartList = document.getElementById("cart-list");
+                const cartTotal = document.getElementById("cart-total");
+
+                const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+                cartList.innerHTML = "";
+                let total = 0;
+
+                cartData.forEach((product, index) => {
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `${product.name} - R$${product.price.toFixed(2)} <button onclick="removeFromCart(${index})">x</button>`;
+                    cartList.appendChild(listItem);
+                    total += product.price;
+                });
+
+                cartTotal.textContent = `R$${total.toFixed(2)}`;
+            }
+
+            function removeFromCart(index) {
+                const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+                cartData.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cartData));
+                loadCart(); // Limpa o item do carrinho
+            }
+
+            function clearCart() {
+                localStorage.removeItem("cart");
+                loadCart(); // Limpa o carrinho
+            }
+
+            function checkout() {
+                alert("Compra finalizada! Obrigado por comprar conosco!");
+                clearCart(); // Limpa o carrinho apÃ³s a compra
+            }
+
+            window.addEventListener("load", loadCart);
+        </script>
+    </main>
+</div>
+</body>
+</html>
