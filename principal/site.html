@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HannahKids</title>
+    <link rel="stylesheet" href="estilosp.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="javas.js">
+    
+</head>
+
+<body bgcolor="FFFAFA">
+    <header class="menuprincipal">
+        <div class="logo_hannah">
+        <a href="site.html"> 
+            <img src="imagenstcc/logohannahcerto.png" width="150px"> 
+        </a>
+
+        </div>
+
+        <div class="campodepesquisa">
+            <img src="imagenstcc/lupa.png" class="lupa">
+            <input type="text" class="caixadepesquisa" placeholder="Digite sua pesquisa...">
+        </div>
+        <div class="pesquisardiv">
+            <button class="botaopesquisa">Pesquisar</button>
+
+        </div>
+
+        <div class="pcadastro">
+            <a href="inicialcadastro.html"><td><button class="botao"> <img src="imagenstcc/cadastrologin.png" alt=""></button></td></a>
+        </div>
+        
+        <div class="carrinhodiv">
+            <a href="carrinhonov.html">
+            <button class="carrinho"><img src="imagenstcc/carrinho.png" alt=""></button>
+            </a>
+    
+        </div>
+    <nav class="menu-lateral">
+
+        <ul>
+            <li class="item-menu">
+            <a href="#">
+                <span class="icon"> <i class='bx bxl-whatsapp' ></i> </span>
+                <span class="txt-link"> WhatsApp </span>
+            </a>
+            </li>
+        </ul>
+        <ul>
+            <li class="item-menu">
+            <a href="#">
+                <span class="icon"> <i class='bx bx-envelope' ></i> </span>
+                <span class="txt-link">Email </span>
+            </a>
+            </li>
+        </ul>
+        <ul>
+            <li class="item-menu">
+            <a href="https://instagram.com/hannahkidsboutique?igshid=MmU2YjMzNjRlOQ==">
+                <span class="icon"> <i class='bx bxl-instagram' ></i></span>
+                <span class="txt-link">Instagram</span>
+            </a>
+            </li>
+        </ul>
+        <ul>
+            <li class="item-menu">
+            <a href="carrinho.html">
+                <span class="icon"> <i class='bx bx-cart' ></i></span>
+                <span class="txt-link">Carrinho</span>
+            </a>
+            </li>
+        </ul>
+        <ul>
+            <li class="item-menu">
+            <a href="inicialcadastro.html">
+                <span class="icon"> <i class='bx bx-user-circle' ></i></i></span>
+                <span class="txt-link">Conta</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    </header>
+
+    <main>
+        <table>
+       <tr>
+        <td> 
+        <div class="quadrado1">
+            <img src="imagenstcc/img ll.png">
+            <button class="produto1"  > <a href="index2.html">Conjunto Dinossauro  
+                <p class="preco1">R$73,90</p></a>
+                <p onclick="addToCart('Conjunto Dinossauro', 73.90)">Adicionar ao carrinho</button>
+            </button>
+           
+        </div>
+    </td>
+
+    <td>
+        <div class="quadrado2">
+            <img src="imagenstcc/img lll.png">
+            <button class="produto2" > <a href="index3.html">Conjuto Bolinha Rosa 
+                <p class="preco2">R$66,00</p></a>
+                <p onclick="addToCart('Conjuto Bolinha Rosa ', 66.00)">Adicionar ao carrinho</button>
+            </button>
+        </div>
+    </td>    
+
+    <td>
+        <div class="quadrado3">
+            <img src="imagenstcc/img.png" alt="">
+            <button class="produto3" > <a href="index1.html">Conjuto Xadrez Ursinho
+                <p class="preco3">R$86,00</p></a>
+                <p onclick="addToCart('Conjuto Xadrez Ursinho', 86.00)">Adicionar ao carrinho</button>
+            </button>
+    </td>
+       </tr>
+
+       <tr>
+        <td>
+            <div class="quadrado4">
+                <img src="imagenstcc/img.png" alt="">
+                <button class="produto4" > <a href="index1.html">Conjuto Xadrez Ursinho
+                    <p class="preco3">R$86,00</p></a>
+                    <p onclick="addToCart('Conjuto Xadrez Ursinho', 86.00)">Adicionar ao carrinho</button>
+                </button>
+        </td>
+
+        <td>
+            <div class="quadrado5">
+                <img src="imagenstcc/img lll.png">
+                <button class="produto5" > <a href="index3.html">Conjuto Bolinha Rosa 
+                    <p class="preco2">R$66,00</p></a>
+                    <p onclick="addToCart('Conjuto Bolinha Rosa ', 66.00)">Adicionar ao carrinho</button>
+                </button>
+            </div>
+        </td>  
+        
+        <td>
+            <div class="quadrado6">
+                <img src="imagenstcc/img.png" alt="">
+                <button class="produto6" > <a href="index1.html">Conjuto Xadrez Ursinho
+                    <p class="preco3">R$86,00</p></a>
+                    <p onclick="addToCart('Conjuto Xadrez Ursinho', 86.00)">Adicionar ao carrinho</button>
+                </button>
+        </td>
+       </tr>
+
+   
+
+        
+       </table>
+        <script>
+            function addToCart(productName, productPrice) {
+
+            const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+            cartData.push({ name: productName, price: productPrice });
+
+            localStorage.setItem("cart", JSON.stringify(cartData));
+            }  
+              
+             var cart = JSON.parse(localStorage.getItem('cart'));
+             var cartList = document.getElementById('cart-list');
+             var cartTotal = document.getElementById('cart-total');
+             cartList.innerHTML = '';
+             cartTotal.innerHTML = 0;
+             cart.forEach(function (item) {
+              var li = document.createElement('li');
+              li.innerHTML = item;
+              cartList.appendChild(li);
+              cartTotal.innerHTML = parseInt(cartTotal.innerHTML) + 1;
+             });
+             function clearCart() {
+              localStorage.removeItem('cart');
+              cartList.innerHTML = '';
+              cartTotal.innerHTML = 0;
+             }
+         
+             
+        </script>
+
+
+
+    </main>
+   
+</body>
+</html>
